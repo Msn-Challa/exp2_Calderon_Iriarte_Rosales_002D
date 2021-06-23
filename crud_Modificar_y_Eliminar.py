@@ -4,10 +4,10 @@ class relleno():
             formulario = ProductoForm(data=request.POST, instance = producto)
             if producto.is_valid:
                 producto.save()
-                return redirect('preventa')
-        return render(request, 'valhalla/templates/#', datos)
+                return redirect('index')
+        return render(request, 'valhalla/templates/form_modproducto', datos)
 
     def form_del_producto(request,id):
-            producto = Producto.objects.get(ñ = id) #la Ñ es por rellenar, lo mismo con el #
+            producto = Producto.objects.get(numeroSerie = id) #la Ñ es por rellenar, lo mismo con el #
             producto.delete()
-            return redirect('preventa')
+            return redirect('index')
